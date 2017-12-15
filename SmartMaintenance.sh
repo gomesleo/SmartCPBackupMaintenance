@@ -11,6 +11,8 @@
 ##	 CONTACT INFO:	leonardo@hostbrasil.net					##
 ##		 SITE:	www.hostbrasil.net					##
 ##										##
+##	       GITHUB:	https://github.com/gomesleo/SmartCPBackupMaintenance	##
+##										##
 ##################################################################################
 ##										##
 ##	This program is free software: you can redistribute it and/or modify	##
