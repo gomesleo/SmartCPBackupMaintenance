@@ -46,7 +46,7 @@
 ##################################################################################
 
 ### GENERAL CONFIGURATION ###
-basedir='/root/SmartCPBackupMaintenance/' # Full path of the script location with / at the end
+basedir='' # Full path of the script location with / at the end
 xml='accounts.xml' # XML file extracted through whmapii
 limit='1024' # Limit in MB
 softlimit='95' # Value in % to notify user that it's near to get backup disabled due limit
@@ -66,8 +66,8 @@ subject_stilldisabled='ALERTA: BACKUP DE CONTA CONTINUA DESABILITADO' # E-mail s
 subject_enabled='AVISO: BACKUP DE CONTA HABILITADO' # E-mail subject for enabled backup
 subject_premiumenabled='AVISO: BACKUP PREMIUM HABILITADO' # E-mail subject for enabled backup
 subject_limitalert='ATENÇÃO: CONTA PRÓXIMO AO LIMITE PARA BACKUP' # E-mail subject for alert of near limit
-from_name='HB Server Administrator' # Display name of the sender
-from_email='admin@hbserver.net' # E-mail of the sender
+from_name='' # Display name of the sender
+from_email='' # E-mail of the sender
 
 ### SERVER  E-MAIL CONFIGURATION ###
 smtp_addr='localhost'
