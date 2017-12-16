@@ -133,7 +133,7 @@ for i in ${!user[*]}; do
 
 			# Re-enable backup and notify premium user if e-mail is set
                         echo "Enabling premium backup for user: ${user[$i]}"
-                        whmapi1 modifyacct user=${user[$i]} backup=1
+                        whmapi1 modifyacct user=${user[$i]} BACKUP=1
 
 			emaildata=`cat $tpl_premiumenabled | sed "s/\[USER\]/${user[$i]}/g;s/\[DOMAIN\]/${domain[$i]}/g;s/\[LIMIT\]/$limit/g;s/\[LIMITPREMIUM\]/$limit/g;s/\[USED\]/$uso/g"`
 
@@ -157,7 +157,7 @@ for i in ${!user[*]}; do
    
 				# Disable backup and notify user if e-mail is set
                         	echo "Disabling backup for user: ${user[$i]}"
-				whmapi1 modifyacct user=${user[$i]} backup=0
+				whmapi1 modifyacct user=${user[$i]} BACKUP=0
 
 				emaildata=`cat $tpl_disabled | sed "s/\[USER\]/${user[$i]}/g;s/\[DOMAIN\]/${domain[$i]}/g;s/\[LIMIT\]/$limit/g;s/\[USED\]/$uso/g"`
 				
@@ -189,7 +189,7 @@ for i in ${!user[*]}; do
 
 				# Re-enable backup and notify user if e-mail is set
                         	echo "Enabling backup for user: ${user[$i]}"
-                                whmapi1 modifyacct user=${user[$i]} backup=1
+                                whmapi1 modifyacct user=${user[$i]} BACKUP=1
 
 				emaildata=`cat $tpl_enabled | sed "s/\[USER\]/${user[$i]}/g;s/\[DOMAIN\]/${domain[$i]}/g;s/\[LIMIT\]/$limit/g;s/\[USED\]/$uso/g"`
 
