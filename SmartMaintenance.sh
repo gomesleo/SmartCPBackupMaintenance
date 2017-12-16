@@ -112,6 +112,9 @@ smtp_send(){
 echo "Generating XML File with all accounts..."
 whmapi1 listaccts want=user,diskused,email,domain,backup --output=xml > $xml
 
+# Remove additional emails from xml
+sed -i.bak -r "s/\,.+$/<\/email>/g" $xml
+
 user=($(grep -oP '(?<=user>)[^<]+' "$xml"))
 diskused=($(grep -oP '(?<=diskused>)[^<]+' "$xml"))
 backup=($(grep -oP '(?<=backup>)[^<]+' "$xml"))
