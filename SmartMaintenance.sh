@@ -86,11 +86,6 @@ tpl_enabled=$basedir$tpl_enabled
 tpl_premiumenabled=$basedir$tpl_premiumenabled
 tpl_limitalert=$basedir$tpl_limitalert
 limitalert=$((limit*$softlimit/100))
-user=($(grep -oP '(?<=user>)[^<]+' "$xml"))
-diskused=($(grep -oP '(?<=diskused>)[^<]+' "$xml"))
-backup=($(grep -oP '(?<=backup>)[^<]+' "$xml"))
-email=($(grep -oP '(?<=email>)[^<]+' "$xml"))
-domain=($(grep -oP '(?<=domain>)[^<]+' "$xml"))
 
 smtp_send(){
  echo -e "\n[+] $smtp_addr:$smtp_port => $smtp_user:$smtp_pass"
@@ -116,6 +111,12 @@ smtp_send(){
 # Generate XML file with all accounts
 echo "Generating XML File with all accounts..."
 whmapi1 listaccts want=user,diskused,email,domain,backup --output=xml > $xml
+
+user=($(grep -oP '(?<=user>)[^<]+' "$xml"))
+diskused=($(grep -oP '(?<=diskused>)[^<]+' "$xml"))
+backup=($(grep -oP '(?<=backup>)[^<]+' "$xml"))
+email=($(grep -oP '(?<=email>)[^<]+' "$xml"))
+domain=($(grep -oP '(?<=domain>)[^<]+' "$xml"))
 
 for i in ${!user[*]}; do
 
